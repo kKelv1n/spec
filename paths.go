@@ -61,7 +61,7 @@ func (p *Paths) UnmarshalJSON(data []byte) error {
 			}
 			p.Extensions[k] = d
 		}
-		if strings.HasPrefix(k, "/") {
+		if strings.HasPrefix(k, "/") || strings.HasPrefix(k, "?"){
 			if p.Paths == nil {
 				p.Paths = make(map[string]PathItem)
 			}
@@ -84,7 +84,7 @@ func (p Paths) MarshalJSON() ([]byte, error) {
 
 	pths := make(map[string]PathItem)
 	for k, v := range p.Paths {
-		if strings.HasPrefix(k, "/") {
+		if strings.HasPrefix(k, "/") || strings.HasPrefix(k, "?") {
 			pths[k] = v
 		}
 	}
