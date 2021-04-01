@@ -11,3 +11,5 @@ require (
 	golang.org/x/text v0.3.5 // indirect
 	gopkg.in/yaml.v2 v2.4.0
 )
+
+replace github.com/go-openapi/spec => github.com/kKelv1n/spec v0.20.3
